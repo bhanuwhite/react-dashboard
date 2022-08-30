@@ -1,0 +1,14 @@
+[
+  { "label": "Jan", "value": "100" },
+  { "label": "Feb", "value": "200 "},
+  { "label": "Mar", "value": "40 "},
+  { "label": "Apr", "value": "150" },
+  { "label": "May", "value": "80" },
+  { "label": "Jun", "value": "120" },
+  { "label": "Jul", "value": "180" },
+  { "label": "Aug", "value": "200 "},
+  { "label": "Sep", "value": "140" },
+  { "label": "Oct", "value": "20" },
+  { "label": "Nov", "value": "160" },
+  { "label": "Dec", "value": "120" }
+]

@@ -1,0 +1,157 @@
+body{
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+/* .app {
+  display: block;
+} */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  height: 10vh;
+  width: 100%;
+  background-color: beige;
+  color: black;
+  text-align: center;
+  padding: 20px;
+}
+
+.sidebar {
+  height: 90vh;
+  width: 15%;
+  background: lightskyblue;
+  color: blue;
+  float: left;
+}
+
+.sidebar_item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px;
+}
+
+.sidebar_item a {
+  color: blue;
+  font-size: 15px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.dashboard {
+  width: 85%;
+  height: 90vh;
+  background: lightgrey;
+  float: left;
+  border-radius: 0px;
+}
+
+.dashboard_header {
+  background: lightgrey;
+  width: initial;
+  height: 5vh;
+  margin: 10px;
+  padding: 5px;
+}
+
+.dashboard_top {
+  background: lightgrey;
+  width: initial;
+  height: 7vh;
+  margin: 10px;
+  display: flex;
+}
+
+.date {
+  background: white;
+  width: 20%;
+  height: 7vh;
+  text-align: left;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  display: column;
+}
+
+.date > div {
+  margin: 3px 5px 5px 0px;
+}
+
+#dateRequired  {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.dashboard_top_item {
+  background: white;
+  width: 15%;
+  height: 7vh;
+  text-align: left;
+  padding: 2px 5px;
+  margin-left: 20px;
+  font-size: 12px;
+  display: column;
+  border-radius: 5px;
+}
+
+.dashboard_top_item > div {
+  margin: 3px 5px 5px 0px;
+}
+
+#selectList {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.dashboard_middle {
+  background: lightgrey;
+  width: initial;
+  height: 20vh;
+  display: flex;
+  margin: 10px;
+}
+
+.dashboard_middle > div {
+  background: white;
+  width: 25%;
+  text-align: left;
+  padding: 10px;
+  margin-right: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.dashboard_middle_item {
+  text-align: left;
+  padding: 20px;
+  color: black;
+  font-size: 20px;
+}
+
+.dashboard_bottom {
+  background: lightgrey;
+  width: initial;
+  display: flex;
+  height: 50vh;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.dashboard_bottom > div {
+  background: white;
+  width: 50%;
+  text-align: left;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.dashboardBarChart_title {
+  margin: 3px 5px 10px 0px;
+  font-size: 14px;
+}

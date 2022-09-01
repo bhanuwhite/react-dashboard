@@ -1,48 +1,3 @@
-body{
-  font-family: sans-serif;
-  height: 100vh;
-}
-
-/* .app {
-  display: block;
-} */
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.header{
-  height: 10vh;
-  width: 100%;
-  background-color: beige;
-  color: black;
-  text-align: center;
-  padding: 20px;
-}
-
-.sidebar {
-  height: 90vh;
-  width: 15%;
-  background: lightskyblue;
-  color: blue;
-  float: left;
-}
-
-.sidebar_item {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 5px;
-}
-
-.sidebar_item a {
-  color: blue;
-  font-size: 15px;
-  margin-bottom: 20px;
-  text-decoration: none;
-}
-
 .dashboard {
   width: 85%;
   height: 90vh;
@@ -82,7 +37,7 @@ body{
   margin: 3px 5px 5px 0px;
 }
 
-#dateRequired  {
+.dateRequired  {
   width: 150px;
   border-radius: 5px;
 }
@@ -103,7 +58,7 @@ body{
   margin: 3px 5px 5px 0px;
 }
 
-#selectList {
+.selectList {
   width: 150px;
   border-radius: 5px;
 }
@@ -151,7 +106,7 @@ body{
   border-radius: 5px;
 }
 
-.dashboardBarChart_title {
+.dashboardChart_title {
   margin: 3px 5px 10px 0px;
   font-size: 14px;
 }

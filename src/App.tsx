@@ -1,15 +1,12 @@
-import MainRoutes from "./Routes";
-import "./style.css";
-import Sidebar from "./components/Sidebar";
+import { BrowserRouter } from "react-router-dom";
+import Home from "./components/Home";
 
 function App(): JSX.Element {
   return (
-    <div className="app">
-      <div className="header">
-        <h2>My Dashboard App</h2>
-      </div>
-      <Sidebar />
-      <MainRoutes />
+    <div>
+      <BrowserRouter>
+      <Home />
+      </BrowserRouter>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import {
   scaleLinear,
   select,
 } from "d3";
-import { IData } from "./Interface";
+import { IData } from "../Interface";
 import * as d3 from "d3";
 
 interface LineChartProps {

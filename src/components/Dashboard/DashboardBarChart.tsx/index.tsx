@@ -8,7 +8,7 @@ import {
   scaleLinear,
   select,
 } from "d3";
-import { IData } from "./Interface";
+import { IData } from "../Interface";
 
 interface BarChartProps {
   data: IData[];

@@ -1,0 +1,20 @@
+.sidebar {
+  height: 90vh;
+  width: 15%;
+  background: lightskyblue;
+  color: blue;
+  float: left;
+}
+
+.sidebar_item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px;
+}
+
+.sidebar_item a {
+  color: blue;
+  font-size: 15px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}

@@ -1,14 +1,14 @@
 .sidebar {
-  height: 90vh;
-  width: 15%;
-  background: lightskyblue;
+  height: 5vh;
+  width: 100%;
+  background: beige;
   color: blue;
   float: left;
 }
 
 .sidebar_item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 10px 5px;
 }
 
@@ -17,4 +17,24 @@
   font-size: 15px;
   margin-bottom: 20px;
   text-decoration: none;
+}
+
+.sidebar_icon{
+  font-size: 20px;
+  margin-left: 2px;
+  padding: 0px;
+}
+
+.sidebar_close{
+  font-size: 20px;
+  margin-left: 2px;
+  padding: 0px;
+  float: right;
+}
+
+.closebar_first_item {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 15px 5px 0px 10px
 }

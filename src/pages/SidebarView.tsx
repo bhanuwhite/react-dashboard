@@ -4,9 +4,7 @@ import Dashboard from "../components/Dashboard";
 
 const Sidebarview:FC = () => {
   return (
-    <div>
       <Dashboard />
-    </div>
   )
 }
 

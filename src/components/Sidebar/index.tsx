@@ -1,47 +1,53 @@
 import { Link } from "react-router-dom";
+import { FC, useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
+import { MdDashboard } from "react-icons/md";
+
 import styles from "./Sidebar.module.scss";
-import React, { FC, useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { IconContext } from "react-icons";
-import styled from "styled-components";
-
-const SidebarNav = styled.div<{ sidebar: boolean }>`
-  width: 200px;
-  height: 90vh;
-  background-color: lightskyblue;
-  position: fixed;
-  top: 10vh;
-  left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
-`;
-
-const SidebarWrap = styled.div``;
 
 const Sidebar: FC = () => {
   const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  const toggleSidebar = () => setSidebar(!sidebar);
+
+  const menuItem = [
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      icon: <MdDashboard />,
+    },
+  ];
 
   return (
-    <div className={styles.sidebar}>
-      <div className={styles.sidebar_item}>
-        <IconContext.Provider value={{ color: "#000000" }}>
-          <Link to="#" onClick={showSidebar}>
-            <div className={styles.sidebar_icon}>
-              <AiOutlineMenu />
+    <div className={styles.container}>
+      <div
+        style={{ width: sidebar ? "200px" : "50px" }}
+        className={styles.sidebar}
+      >
+        <div className={styles.top_section}>
+          <h1
+            style={{ display: sidebar ? "block" : "none" }}
+            className={styles.logo}
+          >
+            Sidebar
+          </h1>
+          <div
+            style={{ marginLeft: sidebar ? "50px" : "0px" }}
+            className={styles.bars}
+          >
+            <AiOutlineMenu onClick={toggleSidebar} />
+          </div>
+        </div>
+        {menuItem.map((item, index) => (
+          <Link to={item.path} key={index} className={styles.link}>
+            <div className={styles.icon}>{item.icon}</div>
+            <div
+              className={styles.link_text}
+              style={{ display: sidebar ? "block" : "none" }}
+            >
+              {item.name}
             </div>
           </Link>
-          <SidebarNav sidebar={sidebar}>
-            <SidebarWrap>
-              <Link to="#" onClick={showSidebar}>
-                <div className={styles.sidebar_close}>
-                  <AiOutlineClose />
-                </div>
-              </Link>
-              <div className={styles.closebar_first_item }>
-              <Link to="/dashboard" onClick={showSidebar}>Dashboard</Link>
-              </div>
-            </SidebarWrap>
-          </SidebarNav>
-        </IconContext.Provider>
+        ))}
       </div>
     </div>
   );

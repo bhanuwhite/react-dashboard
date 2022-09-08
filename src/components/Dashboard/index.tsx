@@ -1,7 +1,9 @@
 import { DashboardBarChart } from "./DashboardBarChart.tsx";
 import { DashboardLineChart } from "./DashboardLineChart";
-import { IData } from "./Interface";
+import { DashboardStockChart } from "./DashboardStockChart.tsx";
+import { IData, IStockData } from "./Interface";
 import chartData from "../../assets/data/chartData.json";
+import stockData from "../../assets/data/stockData.json";
 import styles from "./Dashboard.module.scss";
 
 const ChartData: IData[] = chartData.map((d: any) => {
@@ -11,15 +13,26 @@ const ChartData: IData[] = chartData.map((d: any) => {
   };
 });
 
+const StockData: IStockData[] = stockData.map((d: any) => {
+  return {
+    label: d.label,
+    value: d.value,
+  };
+});
+
 const Dashboard = () => {
+  const date = new Date();
+  const currentDate = date.toISOString().slice(0,10);
+  
   return (
+    <div className={styles.container}>
     <div className={styles.dashboard}>
       <div className={styles.dashboard_header}>Marketing Dashboard</div>
       <div className={styles.dashboard_top}>
         <div className={styles.date}>
           Current Date
           <div>
-            <input className={styles.dateRequired} type="month" name="dateRequired" />
+            <input className={styles.dateRequired} type="date" name="dateRequired" value={currentDate}  />
           </div>
         </div>
         <div className={styles.dashboard_top_item}>
@@ -65,6 +78,17 @@ const Dashboard = () => {
           <DashboardLineChart data={ChartData} />
         </div>
       </div>
+      <div className={styles.dashboard_bottom}>
+        <div>
+          <div className={styles.dashboardChart_title}>Chart 3</div>
+           
+        </div>
+        <div>
+          <div className={styles.dashboardChart_title}>Chart 4</div>
+          <DashboardStockChart data={StockData} />
+        </div>
+      </div>
+    </div>
     </div>
   );
 };

@@ -8,17 +8,18 @@ import {
   scaleLinear,
   select,
 } from "d3";
-import { IData } from "../Interface";
-import "./DashboardLineChart.scss";
+import { IStockData } from "../Interface";
+import "./DashboardStockChart.scss";
 // import * as d3 from "d3";
 
 import * as _d3 from "d3";
 import d3Tip from "d3-tip";
+const curve = _d3.curveLinear;
 
 const d3: any = { ..._d3, tip: d3Tip };
 
-interface LineChartProps {
-  data: IData[];
+interface StockChartProps {
+  data: IStockData[];
 }
 
 interface AxisBottomProps {
@@ -30,8 +31,8 @@ interface AxisLeftProps {
   scale: ScaleLinear<number, number, never>;
 }
 
-interface LinesProps {
-  data: LineChartProps["data"];
+interface StockProps {
+  data: StockChartProps["data"];
   height: number;
   scaleX: AxisBottomProps["scale"];
   scaleY: AxisLeftProps["scale"];
@@ -77,45 +78,69 @@ function Lines({
   setMouseX,
   setMouseY,
   setLabel,
-}: LinesProps) {
+}: StockProps) {
   return (
     <>
       <path
         fill="none"
-        stroke="green"
-        stroke-width="2.5"
+        stroke="steelblue"
+        stroke-width="1.5"
         strokeLinejoin="round"
         strokeLinecap="round"
         d={line(data) as string}
       />
       {data.map(({ value, label }) => (
         <circle
-          key={`bar-${label}`}
-          cx={scaleX(label)}
-          cy={scaleY(value)}
-          r="7"
-          fill="green"
-          onMouseOver={toolTip.show}
-          onMouseEnter={(e: any) => {
-            setMouseX(e.pageX);
-            setMouseY(e.pageY);
-            setValue(value);
-            setLabel(label);
-          }}
-          onMouseOut={toolTip.hide}
-          onMouseLeave={() => {
-            setMouseX(0);
-            setMouseY(0);
-            setValue("");
-            setLabel("");
-          }}
-        />
+        key={`bar-${label}`}
+        cx={scaleX(label)}
+        cy={scaleY(value)}
+        stroke="#af9358"
+        strokeWidth="2"
+        fill="white"
+        opacity="0"
+        r="5"
+        onMouseOver={toolTip.show}
+        onMouseEnter={(e: any) => {
+              setMouseX(e.pageX);
+              setMouseY(e.pageY);
+              setValue(value);
+              setLabel(label);
+            }}
+            onMouseOut={toolTip.hide}
+              onMouseLeave={() => {
+                setMouseX(0);
+                setMouseY(0);
+                setValue("");
+                setLabel("");
+              }}
+              
+      />
+        // <path
+        //   key={`bar-${label}`}
+        //   x={scaleX(label)}
+        //   y={scaleY(value)}
+        //   fill="steelblue"
+        //   onMouseOver={toolTip.show}
+        //   onMouseEnter={(e: any) => {
+        //     setMouseX(e.pageX);
+        //     setMouseY(e.pageY);
+        //     setValue(value);
+        //     setLabel(label);
+        //   }}
+        //   onMouseOut={toolTip.hide}
+        //   onMouseLeave={() => {
+        //     setMouseX(0);
+        //     setMouseY(0);
+        //     setValue("");
+        //     setLabel("");
+        //   }}
+        // />
       ))}
     </>
   );
 }
 
-export function DashboardLineChart({ data }: LineChartProps) {
+export function DashboardStockChart({ data }: StockChartProps) {
   const [value, setValue] = useState(null);
   const [label, setLabel] = useState("");
   const [mouseX, setMouseX] = useState(0);
@@ -136,15 +161,16 @@ export function DashboardLineChart({ data }: LineChartProps) {
   const line = _d3
     .line<any>()
     .defined((d: any): any => !isNaN(d.value))
+    .curve(curve)
     .x((d: any): any => scaleX(d.label))
     .y((d: any): any => scaleY(d.value));
 
   const toolTip = d3
     .tip()
-    .attr("class", "d3-tip_line")
+    .attr("class", "d3-tip_stock")
     .offset([-10, 0])
     .html((d: any) => {
-      return `<div style="position:relative; font-size: 15px; background-color: beige; width: 70px; border-radius: 5px ; padding: 1px; margin: 1px;
+      return `<div style="position:relative; font-size: 15px; background-color: beige; width: 70px; border-radius: 5px; padding: 1px; margin: 1px;
       top: ${mouseY}px; left:${mouseX}px"><strong>${label}</strong> <span>${value}</span></div>`;
     });
 

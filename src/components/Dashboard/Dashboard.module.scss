@@ -1,3 +1,7 @@
+.container {
+  display: flexbox;
+}
+
 .dashboard {
   width: 100%;
   height: 90vh;
@@ -66,7 +70,7 @@
 .dashboard_middle {
   background: lightgrey;
   width: initial;
-  height: 20vh;
+  height: 8.5vh;
   display: flex;
   margin: 10px;
 }
@@ -83,7 +87,7 @@
 
 .dashboard_middle_item {
   text-align: left;
-  padding: 20px;
+  padding: 5px;
   color: black;
   font-size: 20px;
 }
@@ -92,7 +96,7 @@
   background: lightgrey;
   width: initial;
   display: flex;
-  height: 50vh;
+  height: 30vh;
   margin: 10px;
   overflow: hidden;
 }

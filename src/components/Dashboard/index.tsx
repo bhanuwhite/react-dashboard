@@ -5,6 +5,7 @@ import { IData, IStockData } from "./Interface";
 import chartData from "../../assets/data/chartData.json";
 import stockData from "../../assets/data/stockData.json";
 import styles from "./Dashboard.module.scss";
+import DashboardDonutChart from "./DashboardDonutChart";
 
 const ChartData: IData[] = chartData.map((d: any) => {
   return {
@@ -81,7 +82,7 @@ const Dashboard = () => {
       <div className={styles.dashboard_bottom}>
         <div>
           <div className={styles.dashboardChart_title}>Chart 3</div>
-           
+           <DashboardDonutChart  />
         </div>
         <div>
           <div className={styles.dashboardChart_title}>Chart 4</div>

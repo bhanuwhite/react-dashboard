@@ -98,11 +98,11 @@ function Lines({
         strokeWidth="2"
         fill="white"
         opacity="0"
-        r="5"
+        r="8"
         onMouseOver={toolTip.show}
         onMouseEnter={(e: any) => {
-              setMouseX(e.pageX);
-              setMouseY(e.pageY);
+              setMouseX(e.pageX-30);
+              setMouseY(e.pageY-30);
               setValue(value);
               setLabel(label);
             }}
@@ -115,26 +115,6 @@ function Lines({
               }}
               
       />
-        // <path
-        //   key={`bar-${label}`}
-        //   x={scaleX(label)}
-        //   y={scaleY(value)}
-        //   fill="steelblue"
-        //   onMouseOver={toolTip.show}
-        //   onMouseEnter={(e: any) => {
-        //     setMouseX(e.pageX);
-        //     setMouseY(e.pageY);
-        //     setValue(value);
-        //     setLabel(label);
-        //   }}
-        //   onMouseOut={toolTip.hide}
-        //   onMouseLeave={() => {
-        //     setMouseX(0);
-        //     setMouseY(0);
-        //     setValue("");
-        //     setLabel("");
-        //   }}
-        // />
       ))}
     </>
   );
@@ -171,7 +151,7 @@ export function DashboardStockChart({ data }: StockChartProps) {
     .offset([-10, 0])
     .html((d: any) => {
       return `<div style="position:relative; font-size: 15px; background-color: beige; width: 70px; border-radius: 5px; padding: 1px; margin: 1px;
-      top: ${mouseY}px; left:${mouseX}px"><strong>${label}</strong> <span>${value}</span></div>`;
+      top: ${mouseY}px; left:${mouseX}px"><strong>${label}</strong> <span style='color:red'>${value}</span></div>`;
     });
 
   const svg = d3.select("svg");

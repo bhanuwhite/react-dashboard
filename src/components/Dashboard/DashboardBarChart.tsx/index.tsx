@@ -88,8 +88,8 @@ function Bars({
           fill="blue"
           onMouseOver={toolTip.show}
           onMouseEnter={(e: any) => {
-            setMouseX(e.pageX);
-            setMouseY(e.pageY);
+            setMouseX(e.pageX-30);
+            setMouseY(e.pageY-30);
             setValue(value);
             setLabel(label);
           }}
@@ -130,7 +130,7 @@ export function DashboardBarChart({ data }: BarChartProps) {
     .offset([-10, 0])
     .html((d: any) => {
       return `<div style="position:relative;font-size: 15px; background-color: beige; width: 70px; border-radius: 5px; padding: 1px; margin: 1px;
-      top: ${mouseY}px; left:${mouseX}px"><strong>${label}</strong> <span>${value}</span></div>`;
+      top: ${mouseY}px; left:${mouseX}px"><strong>${label}</strong> <span style="color:red">${value}</span></div>`;
     });
   // .html(data.map((d) => "<strong>Value</strong> <span style='color:red'>" +
   //    d.value +

@@ -98,7 +98,7 @@ function Lines({
         strokeWidth="2"
         fill="white"
         opacity="0"
-        r="8"
+        r="10"
         onMouseOver={toolTip.show}
         onMouseEnter={(e: any) => {
               setMouseX(e.pageX-30);
